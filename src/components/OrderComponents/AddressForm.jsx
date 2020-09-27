@@ -1,0 +1,187 @@
+import React, { Component } from 'react';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
+import { useStyles } from './useStyles';
+import theme from '../theme';
+import { ThemeProvider } from '@material-ui/core/styles';
+
+
+class AddressForm extends Component {
+ 
+  render() {     
+    var query = {
+          pickupAddress: this.props.pickupAddress, 
+          shipAddress: this.props.shipAddress,
+          item: this.props.item,
+        };
+
+    const { classes } = this.props;
+      
+    return (
+      <ThemeProvider theme={theme}>
+        <React.Fragment>
+          <Typography variant="h6" gutterBottom align='left'>
+            Pick up from
+          </Typography>
+          <Grid container spacing={3}>
+            <Grid item xs={9}>
+              <TextField
+                required
+                id="pick up address"
+                name="address"
+                label="Pick-up Address"
+                // helperText="hello"
+                fullWidth
+                autoComplete="shipping address-line"
+                defaultValue={this.props.pickupAddress.text}
+                onChange={(e) => {
+                  query.pickupAddress.text = e.target.value;
+                  this.props.onQueryChange(query);
+                }} 
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <Typography variant="body1" align="center">San Francisco, CA</Typography>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <TextField
+                required
+                name="zip"
+                label="Zip code"
+                fullWidth
+                autoComplete="shipping postal-code"
+                defaultValue={this.props.pickupAddress.zip}
+                onChange={(e) => {
+                  query.pickupAddress.zip = e.target.value;
+                  this.props.onQueryChange(query);
+                }} 
+              />
+            </Grid>
+          </Grid>
+          <br/>
+          <br/>
+          <Typography variant="h6" gutterBottom align='left' >
+            Ship to
+          </Typography>
+          <Grid container spacing={3}>
+            <Grid item xs={9}>
+              <TextField
+                required
+                id="shipping address"
+                name="address"
+                label="Shipping Address"
+                fullWidth
+                defaultValue={this.props.shipAddress.text}
+                autoComplete="shipping address-line"
+                onChange={(e) => {
+                  query.shipAddress.text = e.target.value;
+                  this.props.onQueryChange(query);
+                }} 
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <Typography variant="body1" align="center">San Francisco, CA</Typography>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <TextField
+                required
+                name="zip"
+                label="Zip code"
+                fullWidth
+                defaultValue={this.props.shipAddress.zip}
+                autoComplete="shipping postal-code"
+                onChange={(e) => {
+                  query.shipAddress.zip = e.target.value;
+                  this.props.onQueryChange(query);
+                }} 
+              />
+            </Grid>
+
+          </Grid>
+          <br/>
+          <br/>
+          <Typography variant="h6" gutterBottom align='left' >
+            Item
+          </Typography>
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                required
+                name="weight in kg"
+                label="weight in kg"
+                fullWidth
+                defaultValue={this.props.item.weight}
+                autoComplete="weight in kg"
+                onChange={(e) => {
+                  query.item.weight = e.target.value;
+                  this.props.onQueryChange(query);
+                }} 
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                required
+                name="height in cm"
+                label="height in cm"
+                fullWidth
+                defaultValue={this.props.item.height}
+                autoComplete="height in cm"
+                onChange={(e) => {
+                  query.item.height = e.target.value;
+                  this.props.onQueryChange(query);
+                }} 
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                required
+                name="length in cm"
+                label="length in cm"
+                fullWidth
+                defaultValue={this.props.item.length}
+                autoComplete="length in cm"
+                onChange={(e) => {
+                  query.item.length = e.target.value;
+                  this.props.onQueryChange(query);
+                }} 
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                required
+                name="width in cm"
+                label="width in cm"
+                fullWidth
+                defaultValue={this.props.item.width}
+                autoComplete="width in lbs"
+                onChange={(e) => {
+                  query.item.width = e.target.value;
+                  this.props.onQueryChange(query);
+                }} 
+              />
+            </Grid>
+          </Grid>
+
+          <div className={classes.buttons}>
+            <Button
+              variant="contained"
+              color= "primary"
+              onClick={() => {
+                this.props.onNext();
+              }}
+              className={classes.button}
+            >
+              next
+            </Button>
+          </div>
+        </React.Fragment>
+      </ThemeProvider>
+    );
+  }
+}
+ 
+export default withStyles(useStyles)(AddressForm);
+

@@ -4,6 +4,9 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
 import Routes from "../Routes";
 import { LinkContainer } from "react-router-bootstrap";
 
+import Order from './OrderComponents/Order';
+import GMap from './MapComponents/GMap';
+
 class Main extends Component {
     render() {
         return (
