@@ -9,14 +9,15 @@ import GMap from './components/MapComponents/GMap';
 function App() {
   return (
     <div className="App">
-      {/* <Header/>
+      <Header/>
       <Main/>
-      <Footer/> */}
+      <Footer/>
 
-      <Order />
-      <GMap />
+      {/* <Order />
+      <GMap /> */}
     </div>
   );
+
 }
 
 export default App;
