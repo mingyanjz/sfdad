@@ -12,6 +12,7 @@
     box-shadow: rgb(220, 220, 220) 0px 2px 10px;
 }
 .title {
+    padding-left: 20px;
     font-size: 20px;
     font-weight: bold;
     margin: 0px;
