@@ -11,7 +11,8 @@ class RegistrationForm extends React.Component {
     autoCompleteResult: [],
   };
   register = (data) => {
-    fetch('http://localhost:8080/dispatchApp/register', {
+    //fetch('http://localhost:8080/dispatchApp/register', {
+      fetch('http://18.221.103.171/dispatchDeliveryBackend/register', { 
       method: 'POST', // or 'PUT'
       // mode: 'no-cors',
       headers: {
@@ -21,7 +22,8 @@ class RegistrationForm extends React.Component {
       body: JSON.stringify(data),
       // credentials: 'include'
     })
-    .then(data => {        
+    .then(data => {    
+      console.log(data);
       if (data.status >= 400 && data.status < 600) {
         throw new Error("Bad response from server");
       }

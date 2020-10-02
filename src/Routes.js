@@ -32,6 +32,8 @@ export default function Routes(props) {
             <Route exact path="/history">
                 <History 
                     updatePage ={updatePage}
+                    user={props.user}
+                    userHistory={props.userHistory}
                 />
             </Route>
         </Switch>

@@ -27,7 +27,8 @@ class Main extends Component {
         console.log('Update User: ', user);
     }
     logout = () => {
-        fetch('http://localhost:8080/dispatchApp/logout', {
+        // fetch('http://localhost:8080/dispatchApp/logout', {
+        fetch('http://18.221.103.171/dispatchDeliveryBackend/Login/logout', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Origin': 'http://localhost:3000',
@@ -54,6 +55,40 @@ class Main extends Component {
         //     user: null,
         // });
 
+    }
+    getHistory = (data) => {
+        data= {
+            email: '5@gmail.com',
+          };
+        //fetch('http://localhost:8080/dispatchApp/login', {
+          fetch('http://18.221.103.171/dispatchDeliveryBackend/Login/history/user', {    
+          method: 'POST', // or 'PUT'
+          headers: {
+            'Content-Type': 'application/json',
+            'Origin': 'http://localhost:3000',
+          },
+          body: JSON.stringify(data),
+        })
+        .then(data => {        
+          if (data.status >= 400 && data.status < 600) {
+            throw new Error("Bad response from server");
+          }
+          return data.json();
+        })
+          .then(data => {
+            this.setState({
+                userHistory: data,
+            });
+            console.log('History:', data);    
+          })
+          .catch((error) => {
+            console.error('History Failed:', error);    
+            alert("The email or password is incorrect!!");
+          });
+    }
+    onClickUser = () => {
+        this.getHistory(this.state.user)
+        
     }
     render() {
         return (
@@ -88,7 +123,7 @@ class Main extends Component {
                         <Navbar.Collapse>
                             <Nav pullRight>
                                 <LinkContainer to="/history">
-                                    <NavItem>User</NavItem>
+                                    <NavItem onClick={this.onClickUser}>User</NavItem>
                                 </LinkContainer>
                                 <LinkContainer to="/login">
                                     <NavItem onClick={this.logout}>Logout</NavItem>
@@ -100,6 +135,8 @@ class Main extends Component {
                 <Routes
                     updateLogin={this.updateLogin}
                     updateUser={this.updateUser}
+                    user={this.state.user}
+                    userHistory={this.state.userHistory}
                 />
             </div>
         );
