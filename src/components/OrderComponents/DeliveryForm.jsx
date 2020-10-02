@@ -15,26 +15,32 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-
-
-const [value, setState] = React.useState('drone');
+import { Grid } from '@material-ui/core';
 
 class DeliveryForm extends Component {
 
   constructor() {
     super();
     this.state = {
-      value: 'drone',
+      loadingSatellites: false,
+      selected: [],
     }
   }
 
-  handleChange = (event) => {
-    this.setState({
-      value: event.target.value
-    });
+  RadioButtonsGroup = () => {
+    const [value, setValue] = React.useState('drone');
+
+    const handleChange = (event) => {
+      setValue(value = event.target.value);
+      this.props.onOptionChange(value);
+    };
   }
 
   render() {
+    var option  = {
+      value: this.props.value,
+    };
+
     const { classes } = this.props;
 
     return (
@@ -43,10 +49,22 @@ class DeliveryForm extends Component {
           <Typography variant="h6" gutterBottom>
             Delivery method
           </Typography>
-          <FormControl component="fieldset">
-            <RadioGroup aria-label="option" name="deliveryOption" value={value} onChange={this.handleChange}>
-              <FormControlLabel value="drone" control={<Radio />} label="drone" />
-              <FormControlLabel value="car" control={<Radio />} label="car" />
+          <FormControl component="optionSet">
+            <RadioGroup
+              aria-label="option"
+              name="deliveryOption"
+              value={this.RadioButtonsGroup.value}
+              onChange={this.RadioButtonsGroup.handleChange}>
+              <FormControlLabel
+                value="drone"
+                control={<Radio />}
+                label="drone"
+              />
+              <FormControlLabel
+                value="car"
+                control={<Radio />}
+                label="car"
+              />
             </RadioGroup>
           </FormControl>
         </React.Fragment>

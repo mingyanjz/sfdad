@@ -25,9 +25,9 @@ class Order extends Component {
     shipAddress: {text:'', zip:null, lat:null, lng:null},
     item: {weight: null, length: null, height: null, width: null},
     // delivery form
-
-    // payment form
     
+    // payment form
+
   }
 
   handleQueryChange = (query) => {
@@ -39,6 +39,11 @@ class Order extends Component {
     // console.log(this.state.pickupAddress)
   }
 
+  handleOptionSelected = (option) => {
+    this.setState({
+      optionID: option.value == "drone" ? 1 : 2,
+    });
+  }
   
   handleNext = () => {
     const {step} = this.state;
