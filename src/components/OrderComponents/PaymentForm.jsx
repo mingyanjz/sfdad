@@ -9,6 +9,7 @@ import { useStyles } from './useStyles';
 import { withStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../theme';
+import { Autocomplete } from '@material-ui/lab';
 
 class PaymentForm extends Component {
   state = {  }
@@ -19,11 +20,103 @@ class PaymentForm extends Component {
       <ThemeProvider theme={theme}>
         <React.Fragment>
           <Typography variant="h6" gutterBottom>
+            Billing Info
+          </Typography>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={6}>
+              <TextField
+                required
+                id="firstName"
+                label="First Name"
+                fullWidth
+                autocomplete="name"
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                required
+                id="lastName"
+                label="Last Name"
+                fullWidth
+                autocomplete="name"
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                id="email"
+                label="Email"
+                fullWidth
+                autocomplete="email"
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                id="phone"
+                label="Phone"
+                fullWidth
+                autocomplete="tel"
+              />
+            </Grid>
+            <Grid item xs={12} md={12}>
+              <TextField
+                required
+                id="addressLine"
+                label="Address Line"
+                fullWidth
+                autocomplete="shipping street-address"
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                required
+                id="provinceState"
+                label="Province/State"
+                fullWidth
+                autocomplete="shipping region"
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                required
+                id="postcodeZipcode"
+                label="Postcode/Zipcode"
+                fullWidth
+                autocomplete="shipping postal-code"
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                required
+                id="city"
+                label="City"
+                fullWidth
+                autocomplete="shipping locality"
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                required
+                id="contry"
+                label="Contry"
+                fullWidth
+                autocomplete="shipping country"
+              />
+            </Grid>
+          </Grid>
+          <br/>
+          <br/>
+          <Typography variant="h6" gutterBottom>
             Payment
           </Typography>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6}>
-              <TextField required id="cardName" label="Name on card" fullWidth autoComplete="cc-name" />
+              <TextField
+                required
+                id="cardName"
+                label="Name on card"
+                fullWidth
+                autoComplete="cc-name"
+              />
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
@@ -35,7 +128,13 @@ class PaymentForm extends Component {
               />
             </Grid>
             <Grid item xs={12} md={6}>
-              <TextField required id="expDate" label="Expiry date" fullWidth autoComplete="cc-exp" />
+              <TextField
+                required
+                id="expDate"
+                label="Expiry date"
+                fullWidth
+                autoComplete="cc-exp"
+              />
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
@@ -54,8 +153,6 @@ class PaymentForm extends Component {
               />
             </Grid>
           </Grid>
-
-          
           <div className={classes.buttons}>
             <Button 
               className={classes.button}

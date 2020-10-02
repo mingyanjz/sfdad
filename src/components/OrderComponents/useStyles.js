@@ -37,8 +37,12 @@ export const useStyles = theme => ({
     listItem: {
       padding: theme.spacing(1, 0),
     },
+    formControl: {
+      padding: theme.spacing(1, 0),
+    },
     total: {
       fontWeight: 700,
     },
+    
   })
   

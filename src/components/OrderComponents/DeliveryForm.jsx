@@ -7,51 +7,52 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button'
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { withStyles } from '@material-ui/core/styles';
-import { ThemeProvider} from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../theme';
 import { useStyles } from './useStyles';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+
+
+const [value, setState] = React.useState('drone');
 
 class DeliveryForm extends Component {
-  state = { 
-    checked:-1,
+
+  constructor() {
+    super();
+    this.state = {
+      value: 'drone',
+    }
   }
 
-  render() { 
+  handleChange = (event) => {
+    this.setState({
+      value: event.target.value
+    });
+  }
+
+  render() {
     const { classes } = this.props;
+
     return (
       <ThemeProvider theme={theme}>
         <React.Fragment>
           <Typography variant="h6" gutterBottom>
             Delivery method
           </Typography>
-          {/* <List dense className={classes.root}> */}
-          <List dense >
-            <ListItem key={0} button>
-              <ListItemIcon>
-                <Checkbox
-                  edge="start"
-                  checked={this.checked === 1}
-                  inputProps={{ 'aria-labelledby': `checkbox-list-1` }}
-                />
-              </ListItemIcon>
-              <ListItemText id={`checkbox-list-1`} primary={'drone'} />
-            </ListItem>
-            
-            <ListItem key={1} button>
-              <ListItemIcon>
-                <Checkbox
-                  edge="start"
-                  checked={this.checked === 2}
-                  inputProps={{ 'aria-labelledby': `checkbox-list-2` }}
-                />
-              </ListItemIcon>
-              <ListItemText id={`checkbox-list-2`} primary={'car'} />
-            </ListItem>
-          </List>
+          <FormControl component="fieldset">
+            <RadioGroup aria-label="option" name="deliveryOption" value={value} onChange={this.handleChange}>
+              <FormControlLabel value="drone" control={<Radio />} label="drone" />
+              <FormControlLabel value="car" control={<Radio />} label="car" />
+            </RadioGroup>
+          </FormControl>
         </React.Fragment>
-        
+
         <div className={classes.buttons}>
-          <Button 
+          <Button
             className={classes.button}
             onClick={this.props.onBack}
           >
@@ -59,7 +60,7 @@ class DeliveryForm extends Component {
           </Button>
           <Button
             variant="contained"
-            color= "primary"
+            color="primary"
             className={classes.button}
             onClick={this.props.onNext}
           >
@@ -70,5 +71,5 @@ class DeliveryForm extends Component {
     );
   }
 }
- 
+
 export default withStyles(useStyles)(DeliveryForm);

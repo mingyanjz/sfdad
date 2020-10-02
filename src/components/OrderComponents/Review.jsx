@@ -21,7 +21,7 @@ class Review extends Component {
       <ThemeProvider theme={theme}>
         <React.Fragment>
           <Typography variant="h6" gutterBottom>
-            Summary
+            Order Summary
           </Typography>
           <List>  
             <ListItem className={classes.listItem} key={product.name}>
