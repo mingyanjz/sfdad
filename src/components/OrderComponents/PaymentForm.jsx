@@ -14,7 +14,12 @@ import { Autocomplete } from '@material-ui/lab';
 class PaymentForm extends Component {
   state = {  }
 
-  render() { 
+  render() {
+    var payment  = {
+      orderID: this.props.value,
+      email: this.props.email,
+    };
+    
     const { classes } = this.props;
     return (
       <ThemeProvider theme={theme}>
@@ -57,7 +62,7 @@ class PaymentForm extends Component {
                 autocomplete="tel"
               />
             </Grid>
-            <Grid item xs={12} md={12}>
+            <Grid item xs={12}>
               <TextField
                 required
                 id="addressLine"
@@ -148,7 +153,12 @@ class PaymentForm extends Component {
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
-                control={<Checkbox color="secondary" name="saveCard" value="yes" />}
+                control={
+                <Checkbox
+                  color="secondary"
+                  name="saveCard"
+                  value="yes"
+                />}
                 label="Remember credit card details for next time"
               />
             </Grid>

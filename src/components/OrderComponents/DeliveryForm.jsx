@@ -53,6 +53,7 @@ class DeliveryForm extends Component {
             <RadioGroup
               aria-label="option"
               name="deliveryOption"
+              defaultValue={'drone'}
               value={this.RadioButtonsGroup.value}
               onChange={this.RadioButtonsGroup.handleChange}>
               <FormControlLabel
