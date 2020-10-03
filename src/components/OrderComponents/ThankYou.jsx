@@ -11,22 +11,25 @@ import LinearBuffer from './Loading';
 
 class ThankYou extends Component {
 	state = {  }
-
+	
 	render() { 
-		var payment = {
-			orderID: this.props.orderID,
-			firstName: this.props.firstName,
-			time: this.props.deliveryTime,
-		};
+		var order = {
+			orderID : this.props.orderID,
+			time: this.props.opions[this.props.optionidx].option.deliveryTime,
+		}
+		var user = {
+			firstName: this.props.user.firstName,
+		}
+		const { classes } = this.props;
 
 		return ( 
 			<ThemeProvider theme={theme}>
 				<React.Fragment>
 					<Typography variant="h5" gutterBottom>
-						{payment.firstName}, thank you for your order.
+						{user.firstName}, thank you for your order.
 					</Typography>
 					<Typography variant="subtitle1">
-						Your order number is {payment.orderID}. The expected delivery time is {payment.time}.
+						Your order number is {order.orderID}. The expected delivery time is {order.time}.
 						Please see the UserInfo page for traking detials.
 					</Typography>
 					<LinearBuffer />

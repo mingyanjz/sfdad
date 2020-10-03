@@ -21,11 +21,11 @@ class DeliveryForm extends Component {
   }
 
   render() {
+    // var data = require('./options.json');
+    var data = this.props.options;
     var option = {
-      optionID: this.props.optionID
+      optionIdx: this.props.optionIdx
     };
-
-    var data = require('./options.json');
 
     const { classes } = this.props;
 
@@ -40,7 +40,11 @@ class DeliveryForm extends Component {
               aria-label="option"
               name="deliveryOption"
               defaultValue={'drone'}
-              onChange={this.RadioButtonsGroup.handleChange}
+              onChange={(e) => {
+                this.RadioButtonsGroup.handleChange;
+                option.optionIdx = e.target.value === 'drone' ? 0 : 1;
+                this.props.onOptionSelectedChange(option);
+              }}
             >
               <FormControlLabel
                 value="drone"
@@ -82,10 +86,6 @@ class DeliveryForm extends Component {
             color="primary"
             className={classes.button}
             onClick={() => {this.props.onNext();}}
-            onChange={(e) => {
-              option.optionID = this.value === "drone" ? 0 : 1;
-              this.props.onOptionSelectedChange(option);
-            }}
           >
             Next
           </Button>

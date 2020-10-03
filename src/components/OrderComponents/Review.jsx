@@ -18,31 +18,31 @@ class Review extends Component {
 
   };
 
-
-
-  order = (data) => {
-    fetch('http://???????????????', {
+  getOrder = (order) => {
+    fetch('http://18.221.103.171/dispatchDeliveryBackend/Login/order/user', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Origin': 'http://localhost:3000',
       },
       body: JSON.stringify( {
-        optionID: this.props.optionID,
-        email: userEvent.email //????
+        optionID: this.props.optionIdx,
+        email: user.email //????
       })
     })
-      .then(data => {
-        this.props.onPaymentPay(data);
+      .then(order => {
+        this.props.onPaymentPay(order);
       })
   }
 
   render() {
     var order = {
-      orderID: this.props.orderID
+      optionID: this.props.option.optionIdx,
+      email: this.props.user.email,
     };
-    var optionID = 1;
-    var data = require('./options.json');
+    var optionID = this.props.optionIdx;
+    // var data = require('./options.json');
+    var data = this.props.options;
     const { classes } = this.props;
     return (
       <ThemeProvider theme={theme}>
@@ -89,10 +89,9 @@ class Review extends Component {
             variant="contained"
             color="primary"
             className={classes.button}
-            onClick={this.props.onNext}
-            onChange={(e) => {
-              order.orderID = e.target;
-              this.props.onPaymentPayChange(order);
+            onClick={() => {
+              this.getOrder(order);
+              this.props.onNext;
             }}
           >
             Place Order
