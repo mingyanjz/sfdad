@@ -3,8 +3,8 @@ import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+// import Button from '@material-ui/core/Button';
+// import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../theme';
@@ -15,19 +15,25 @@ import DeliveryForm from './DeliveryForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
 import ThankYou from './ThankYou';
+import GMap from '../MapComponents/GMap';
 
+ 
 
 class Order extends Component {
   state = { 
     step: 0, 
     // query form
-    pickupAddress: {text:'', zip:null, lat:null, lng:null},
-    shipAddress: {text:'', zip:null, lat:null, lng:null},
+    pickupAddress: {text:'2601 Mason St', zip:null, lat:null, lng:null},
+    shipAddress: {text:'99 Harding Rd', zip:null, lat:null, lng:null},
     item: {weight: null, length: null, height: null, width: null},
     // delivery form
-
+    options: null,
+    optionIdx: 0, // 0: drone; 1: car
+    
     // payment form
     
+    // helper
+    isLoading: false,
   }
 
   handleQueryChange = (query) => {
@@ -36,16 +42,40 @@ class Order extends Component {
       shipAddress: query.shipAddress,
       item: query.item
     });
-    // console.log(this.state.pickupAddress)
+  }
+
+  handleOptionsChange = (options) => {
+    this.setState({
+      options: options
+    })
+    console.log('option is changed')
+    this.handleLoading(false);
+
+    var {pickupAddress} = this.state;
+    pickupAddress.lat = options[0].startToEnd.points[0].lat;
+    pickupAddress.lng = options[0].startToEnd.points[0].lng;
+    this.setState(pickupAddress);
+
+    var {shipAddress} = this.state;
+    shipAddress.lat = options[0].startToEnd.points[1].lat;
+    shipAddress.lng = options[0].startToEnd.points[1].lng;
+    this.setState(shipAddress);
+
+    this.handleNext();
+    // console.log(this.state.options);
+  }
+
+  handleLoading = (isLoading) => {
+    this.setState({
+      isLoading: isLoading,
+    })
   }
 
   
   handleNext = () => {
     const {step} = this.state;
-    this.setState({
-      step: step+1,
-    })
-    console.log(this.state.step);
+    this.setState({step: step+1})
+    // console.log(this.state.step);
   };
 
   handleBack = () => {
@@ -59,7 +89,8 @@ class Order extends Component {
     switch (step) {
       case 0:
         return <AddressForm {...this.state} onQueryChange={this.handleQueryChange} 
-                    onNext={this.handleNext}/>;
+                    onNext={this.handleNext} onOptionsChange={this.handleOptionsChange}
+                    onLoading={this.handleLoading}/>;
       case 1:
         return <DeliveryForm onNext={this.handleNext} onBack={this.handleBack}/>;
       case 2:
@@ -81,6 +112,7 @@ class Order extends Component {
                    {info: 'Pay', emoji: <span role="img" aria-label="tent">💳</span>}, 
                    {info: 'Confirm', emoji: <span role="img" aria-label="tent">😘</span>},];
 
+    const test = {lat:37.75, lng:-122.45}
 
     return (
       <ThemeProvider theme={theme}>
@@ -107,6 +139,9 @@ class Order extends Component {
             </Paper>
           </main>
         </React.Fragment>
+        <div>
+          <GMap {...this.state}/>
+        </div>
       </ThemeProvider>
     );
   }

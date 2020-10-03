@@ -4,7 +4,6 @@ import Main from './components/Main'
 import Footer from './components/Footer'
 
 import Order from './components/OrderComponents/Order';
-import GMap from './components/MapComponents/GMap';
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
       <Footer/> */}
 
       <Order />
-      <GMap />
     </div>
   );
 }
