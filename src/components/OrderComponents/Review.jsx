@@ -14,9 +14,6 @@ import Paper from '@material-ui/core/Paper';
 import userEvent from '@testing-library/user-event';
 
 class Review extends Component {
-  state = {
-
-  };
 
   getOrder = (order) => {
     fetch('http://18.221.103.171/dispatchDeliveryBackend/Login/order/user', {
@@ -88,11 +85,11 @@ class Review extends Component {
           <Button
             variant="contained"
             color="primary"
-            className={classes.button}
             onClick={() => {
               this.getOrder(order);
-              this.props.onNext;
+              this.props.onNext();
             }}
+            className={classes.button}
           >
             Place Order
           </Button>

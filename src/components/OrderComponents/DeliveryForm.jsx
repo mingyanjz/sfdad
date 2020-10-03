@@ -17,6 +17,8 @@ class DeliveryForm extends Component {
 
     const handleChange = (event) => {
       setValue(value = event.target.value);
+      this.props.option.optionIdx = value === 'drone' ? 0 : 1;
+      this.props.onOptionSelectedChange(this.props.option);
     };
   }
 
@@ -40,11 +42,7 @@ class DeliveryForm extends Component {
               aria-label="option"
               name="deliveryOption"
               defaultValue={'drone'}
-              onChange={(e) => {
-                this.RadioButtonsGroup.handleChange;
-                option.optionIdx = e.target.value === 'drone' ? 0 : 1;
-                this.props.onOptionSelectedChange(option);
-              }}
+              onChange={this.RadioButtonsGroup.handleChange}
             >
               <FormControlLabel
                 value="drone"
@@ -52,11 +50,11 @@ class DeliveryForm extends Component {
                 label="drone"
               />
               <Typography variant="subtitle1" >
-                price: {data[0].option.fee}
+                  price: {data[0].option.fee}
               </Typography>
               <br></br>
               <Typography>
-                time: {data[0].option.deliveryTime}
+                  time: {data[0].option.deliveryTime}
               </Typography>
               <FormControlLabel
                 value="robot"
@@ -64,11 +62,11 @@ class DeliveryForm extends Component {
                 label="robot"
               />
               <Typography variant="subtitle1" >
-                price: {data[1].option.fee}
+                  price: {data[1].option.fee}
               </Typography>
               <br></br>
               <Typography>
-                time: {data[1].option.deliveryTime}
+                  time: {data[1].option.deliveryTime}
               </Typography>
             </RadioGroup>
           </FormControl>
@@ -85,7 +83,7 @@ class DeliveryForm extends Component {
             variant="contained"
             color="primary"
             className={classes.button}
-            onClick={() => {this.props.onNext();}}
+            onClick={() => { this.props.onNext(); }}
           >
             Next
           </Button>
