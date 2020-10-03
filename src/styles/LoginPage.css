@@ -1,13 +1,28 @@
-.Login .lander {
-    padding: 80px 0;
-    text-align: center;
-  }
-  
-  .Login .lander h1 {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-  }
-  
-  .Login .lander p {
-    color: #999;
-  }
+.Login {
+  height: 1080px;
+  width: 1920px;
+}
+
+.Login-list{
+  position: absolute;
+  padding: 100px;
+}
+.Login-box{
+  position: absolute;
+  width: 500px;
+  left: 50px;
+  top: 100px;
+  padding-top: 500 px;
+}
+.background-drone {
+  transform: rotate(-20deg);
+}
+.Form .Item{ 
+  margin-bottom: 4;
+}
+.background {
+  position: absolute;
+
+  right: 0px;
+  bottom: 0px;
+}

@@ -1,7 +1,9 @@
 .App {
-  margin-top: 15px;
-}
-
-.App .navbar-brand {
-  font-weight: bold;
+  text-align: center;
+  min-height: 100vh;
+  min-width: 150vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 5px;
 }
