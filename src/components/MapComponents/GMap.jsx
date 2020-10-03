@@ -145,7 +145,7 @@ export default function GMap(props) {
 	// Key!!!
 	const useKey = [false, true][0];
   	const { isLoaded, loadError } = useLoadScript({
-		googleMapsApiKey: (useKey)? '&key=AIzaSyDBQYTDleV9xNENx9ZlnTiFKiNVK25NWxc': '',
+		googleMapsApiKey: (useKey)? '&key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX': '',
     	libraries,
 	});
 	
@@ -165,7 +165,6 @@ export default function GMap(props) {
 
 	if (props.options != null) {
 		drone = props.options[0];
-		console.log(props.options)
 		droneRoute = concateRoute(drone);
 		// console.log(droneRoute);
 
@@ -177,14 +176,14 @@ export default function GMap(props) {
 	const droneRouteColor = '#f44336';
 
 	var addresses = [];
-	if (pickupAddress.lat != null && pickupAddress.lng != null)
+	if (props.pickupAddress.lat != null && props.pickupAddress.lng != null)
 		addresses.push({id:'Pick Up Here',lat:pickupAddress.lat, lng:pickupAddress.lng, logo: location_logo})
 
 	if (shipAddress.lat != null && shipAddress.lng != null)
 		addresses.push({id:'Receive Here',lat:shipAddress.lat, lng:shipAddress.lng, logo: location_logo})
 
 	if (addresses.length > 2) 
-		addresses = addresses.slice(address.length-2, addresses.length);
+		addresses = addresses.slice(addresses.length-2, addresses.length);
 
 	return (
 		<div>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Order from './OrderComponents/Order';
-import GMap from './MapComponents/GMap';
 
 export default class HomePage extends Component{
   
@@ -10,7 +9,6 @@ export default class HomePage extends Component{
             <div className="Hhome">
               <div className="lander">
                     <Order />
-                    <GMap />
               </div>
             </div>
           );

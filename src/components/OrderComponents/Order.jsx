@@ -28,7 +28,7 @@ class Order extends Component {
     item: {weight: null, length: null, height: null, width: null},
     // delivery form
     options: null,
-    optionIdx: 0, // 0: drone; 1: car
+    optionIdx: 1, // 0: drone; 1: car
     
     // payment form
     
