@@ -27,6 +27,12 @@ class Order extends Component {
     shipAddress: {text:'', zip:null, lat:null, lng:null},
     item: {weight: null, length: null, height: null, width: null},
     // delivery form
+// <<<<<<< Yuran
+//     optionID: null,
+//     // payment form
+//     // review
+//     orderID: null,
+// =======
     options: null,
     optionIdx: 1, // 0: drone; 1: car
     
@@ -34,6 +40,7 @@ class Order extends Component {
     
     // helper
     isLoading: false,
+// >>>>>>> master
   }
 
   handleQueryChange = (query) => {
@@ -71,6 +78,18 @@ class Order extends Component {
     })
   }
 
+  handleOptionSelected = (option) => {
+    this.setState({
+      optionID: option.optionID,
+    });
+  }
+
+  handlePaymentPay = (order) => {
+    this.setState({
+      orderID: order.orderID,
+      email: order.email,
+    });
+  }
   
   handleNext = () => {
     const {step} = this.state;
