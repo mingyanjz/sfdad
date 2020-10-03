@@ -19,27 +19,20 @@ import { Grid } from '@material-ui/core';
 
 class DeliveryForm extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      loadingSatellites: false,
-      selected: [],
-    }
-  }
-
   RadioButtonsGroup = () => {
     const [value, setValue] = React.useState('drone');
 
     const handleChange = (event) => {
       setValue(value = event.target.value);
-      this.props.onOptionChange(value);
     };
   }
 
   render() {
-    var option  = {
-      value: this.props.value,
+    var option = {
+      optionID: this.props.value === "drone" ? 0 : 1
     };
+
+    var data = require('./options.json');
 
     const { classes } = this.props;
 
@@ -54,18 +47,30 @@ class DeliveryForm extends Component {
               aria-label="option"
               name="deliveryOption"
               defaultValue={'drone'}
-              value={this.RadioButtonsGroup.value}
-              onChange={this.RadioButtonsGroup.handleChange}>
+              onChange={this.RadioButtonsGroup.handleChange}
+            >
               <FormControlLabel
                 value="drone"
                 control={<Radio />}
                 label="drone"
               />
+              <Typography variant="subtitle1" >
+                price: {data[0].option.fee}
+              </Typography>
+              <Typography>
+                time: {data[0].option.deliveryTime}
+              </Typography>
               <FormControlLabel
-                value="car"
+                value="robot"
                 control={<Radio />}
-                label="car"
+                label="robot"
               />
+              <Typography variant="subtitle1" >
+                price: {data[1].option.fee}
+              </Typography>
+              <Typography>
+                time: {data[1].option.deliveryTime}
+              </Typography>
             </RadioGroup>
           </FormControl>
         </React.Fragment>
@@ -81,7 +86,11 @@ class DeliveryForm extends Component {
             variant="contained"
             color="primary"
             className={classes.button}
-            onClick={this.props.onNext}
+            onClick={() => {this.props.onNext();}}
+            onChange={(e) => {
+              option.optionID = this.value === "drone" ? 0 : 1;
+              this.props.onOptionSelectedChange(option);
+            }}
           >
             Next
           </Button>

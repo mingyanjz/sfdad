@@ -1,0 +1,170 @@
+[{
+    "id": 0,
+    "startAddress": "2601 Mason St, San Francisco, CA 94133",
+    "endAddress": "99 Harding Rd, San Francisco, CA 94132",
+    "carrierId": 62,
+    "carrierType": "DRONE",
+    "stationId": 0,
+    "startTime": "2020-10-02 21:32",
+    "departureTime": "2020-10-02 21:34",
+    "deliveryTime": "2020-10-02 21:42",
+    "endTime": "2020-10-02 21:48",
+    "weight": 0.0,
+    "fee": 0.0,
+    "option": {
+        "id": 75,
+        "startAddress": "2601 Mason St, San Francisco, CA 94133",
+        "endAddress": "99 Harding Rd, San Francisco, CA 94132",
+        "departureTime": null,
+        "deliveryTime": null,
+        "endTime": null,
+        "weight": 0.0,
+        "fee": 59.30892,
+        "user": null,
+        "carrier": {
+            "id": 62,
+            "carrierType": "DRONE",
+            "stationId": 0,
+            "speed": 50.0,
+            "status": "Available"
+        },
+        "order": null
+    },
+    "stationToStart": {
+        "id": 0,
+        "startAddress": "San Francisco",
+        "endAddress": "2601 Mason St, San Francisco, CA 94133",
+        "duration": 0.04570837794926622,
+        "distance": 2.285418897463311,
+        "points": [{
+                "lat": 37.7749941,
+                "lng": -122.4194974
+            },
+            {
+                "lat": 37.8077927,
+                "lng": -122.41406
+            }
+        ]
+    },
+    "startToEnd": {
+        "id": 0,
+        "startAddress": "2601 Mason St, San Francisco, CA 94133",
+        "endAddress": "99 Harding Rd, San Francisco, CA 94132",
+        "duration": 0.14416721977313146,
+        "distance": 7.208360988656573,
+        "points": [{
+                "lat": 37.8077927,
+                "lng": -122.41406
+            },
+            {
+                "lat": 37.7242993,
+                "lng": -122.4932026
+            }
+        ]
+    },
+    "endToStation": {
+        "id": 0,
+        "startAddress": "99 Harding Rd, San Francisco, CA 94132",
+        "endAddress": "San Francisco",
+        "duration": 0.10666900405723831,
+        "distance": 5.333450202861916,
+        "points": [{
+                "lat": 37.7242993,
+                "lng": -122.4932026
+            },
+            {
+                "lat": 37.7749613,
+                "lng": -122.4195388
+            }
+        ]
+    }
+},
+{
+    "id": 0,
+    "startAddress": "2601 Mason St, San Francisco, CA 94133",
+    "endAddress": "99 Harding Rd, San Francisco, CA 94132",
+    "carrierId": 65,
+    "carrierType": "ROBOT",
+    "stationId": 0,
+    "startTime": "2020-10-02 21:32",
+    "departureTime": "2020-10-02 21:47",
+    "deliveryTime": "2020-10-02 22:18",
+    "endTime": "2020-10-02 22:41",
+    "weight": 0.0,
+    "fee": 0.0,
+    "option": {
+        "id": 76,
+        "startAddress": "2601 Mason St, San Francisco, CA 94133",
+        "endAddress": "99 Harding Rd, San Francisco, CA 94132",
+        "departureTime": null,
+        "deliveryTime": null,
+        "endTime": null,
+        "weight": 0.0,
+        "fee": 58.041668,
+        "user": null,
+        "carrier": {
+            "id": 65,
+            "carrierType": "ROBOT",
+            "stationId": 0,
+            "speed": 0.0,
+            "status": "Available"
+        },
+        "order": null
+    },
+    "stationToStart": {
+        "id": 0,
+        "startAddress": "San Francisco",
+        "endAddress": "2601 Mason St, San Francisco, CA 94133",
+        "duration": 0.25333333333333335,
+        "distance": 3.252330640149161,
+        "points": [{
+            "lat": 37.77499,
+            "lng": -122.4195
+        }]
+    },
+    "startToEnd": {
+        "id": 0,
+        "startAddress": "2601 Mason St, San Francisco, CA 94133",
+        "endAddress": "99 Harding Rd, San Francisco, CA 94132",
+        "duration": 0.5216666666666666,
+        "distance": 11.337476693598509,
+        "points": [{
+                "lat": 37.80779,
+                "lng": -122.41406
+            },
+            {
+                "lat": 37.80383,
+                "lng": -122.47056
+            },
+            {
+                "lat": 37.75984,
+                "lng": -122.4769
+            }
+        ]
+    },
+    "endToStation": {
+        "id": 0,
+        "startAddress": "99 Harding Rd, San Francisco, CA 94132",
+        "endAddress": "San Francisco",
+        "duration": 0.3858333333333333,
+        "distance": 11.937849596022374,
+        "points": [{
+                "lat": 37.7243,
+                "lng": -122.4932
+            },
+            {
+                "lat": 37.71768,
+                "lng": -122.48515
+            },
+            {
+                "lat": 37.73215,
+                "lng": -122.4314
+            },
+            {
+                "lat": 37.762,
+                "lng": -122.40576
+            }
+        ]
+    }
+}
+]
