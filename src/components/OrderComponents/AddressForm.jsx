@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import { withStyles } from '@material-ui/core/styles';
 import { useStyles } from './useStyles';
 import theme from '../theme';
@@ -10,12 +11,36 @@ import { ThemeProvider } from '@material-ui/core/styles';
 
 
 class AddressForm extends Component {
- 
+  
+
+  getOptions = (query) => {
+    this.props.onLoading(true);
+    var url = 'http://18.221.103.171/dispatchDeliveryBackend/Login/option?';
+    // test case
+    // '2601 Mason St, San Francisco, CA 94133'
+    // '99 Harding Rd, San Francisco, CA 94132'
+    url += ('from=' + this.props.pickupAddress.text + ', San Francisco, CA ' + this.props.pickupAddress.zip);
+    url += ('&to=' + this.props.shipAddress.text + ', San Francisco, CA ' + this.props.shipAddress.zip);
+    console.log(url);
+    url = encodeURI(url);
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        this.props.onOptionsChange(data);
+      })
+      
+    // temporary for testing
+    // var data = require('./options.json');
+    // this.props.onOptionsChange(data);
+  }
+
+
   render() {     
     var query = {
           pickupAddress: this.props.pickupAddress, 
           shipAddress: this.props.shipAddress,
           item: this.props.item,
+          options: this.props.options,
         };
 
     const { classes } = this.props;
@@ -103,7 +128,7 @@ class AddressForm extends Component {
           </Grid>
           <br/>
           <br/>
-          <Typography variant="h6" gutterBottom align='left' >
+          {/* <Typography variant="h6" gutterBottom align='left' >
             Item
           </Typography>
           <Grid container spacing={3}>
@@ -163,20 +188,35 @@ class AddressForm extends Component {
                 }} 
               />
             </Grid>
-          </Grid>
-
-          <div className={classes.buttons}>
-            <Button
+          </Grid> */}
+          
+          { this.props.isLoading ? 
+            <div className={classes.buttons}>
+              <Button
+                // disabled  
+                variant="contained"
+                color= "primary"
+                className={classes.button}
+              >
+                Loading...{'  '}
+                <CircularProgress size={13} color='inherit'/> 
+              </Button>
+            </div>  
+            : 
+            <div className={classes.buttons}>
+            <Button 
               variant="contained"
               color= "primary"
               onClick={() => {
-                this.props.onNext();
+                this.getOptions(query);
               }}
               className={classes.button}
             >
               next
             </Button>
-          </div>
+          </div>   
+        }
+
         </React.Fragment>
       </ThemeProvider>
     );
