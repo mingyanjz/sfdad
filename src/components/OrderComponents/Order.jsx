@@ -23,8 +23,8 @@ class Order extends Component {
   state = { 
     step: 0, 
     // query form
-    pickupAddress: {text:'2601 Mason St', zip:null, lat:null, lng:null},
-    shipAddress: {text:'99 Harding Rd', zip:null, lat:null, lng:null},
+    pickupAddress: {text:'', zip:null, lat:null, lng:null},
+    shipAddress: {text:'', zip:null, lat:null, lng:null},
     item: {weight: null, length: null, height: null, width: null},
     // delivery form
     options: null,
