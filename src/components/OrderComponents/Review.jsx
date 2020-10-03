@@ -27,7 +27,7 @@ class Review extends Component {
       },
       body: JSON.stringify( {
         optionID: this.props.optionIdx,
-        email: user.email //????
+        email: this.props.user.email,
       })
     })
       .then(order => {
