@@ -15,10 +15,6 @@ class PaymentForm extends Component {
   state = {  }
 
   render() {
-    var payment  = {
-      orderID: this.props.value,
-      email: this.props.email,
-    };
     
     const { classes } = this.props;
     return (

@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button'
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { withStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../theme';
@@ -14,8 +9,6 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import { Grid } from '@material-ui/core';
 
 class DeliveryForm extends Component {
 
@@ -29,7 +22,7 @@ class DeliveryForm extends Component {
 
   render() {
     var option = {
-      optionID: this.props.value === "drone" ? 0 : 1
+      optionID: this.props.optionID
     };
 
     var data = require('./options.json');
@@ -57,6 +50,7 @@ class DeliveryForm extends Component {
               <Typography variant="subtitle1" >
                 price: {data[0].option.fee}
               </Typography>
+              <br></br>
               <Typography>
                 time: {data[0].option.deliveryTime}
               </Typography>
@@ -68,6 +62,7 @@ class DeliveryForm extends Component {
               <Typography variant="subtitle1" >
                 price: {data[1].option.fee}
               </Typography>
+              <br></br>
               <Typography>
                 time: {data[1].option.deliveryTime}
               </Typography>

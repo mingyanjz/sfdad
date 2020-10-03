@@ -46,10 +46,10 @@ class Order extends Component {
     });
   }
 
-  handlePaymentPay = (payment) => {
+  handlePaymentPay = (order) => {
     this.setState({
-      orderID: payment.orderID,
-      email: payment.email,
+      orderID: order.orderID,
+      email: order.email,
     });
   }
   
