@@ -6,9 +6,10 @@ import Footer from './components/Footer'
 import Order from './components/OrderComponents/Order';
 
 function App() {
+
   return (
     <div className="App">
-      <Header/>
+      {/* <Header/> */}
       <Main/>
       <Footer/>
 

@@ -3,19 +3,8 @@
   width: 1920px;
 }
 
-.Register-list{
-  position: absolute;
-  padding: 100px;
-}
-.background-drone {
-  transform: rotate(-20deg);
-}
+
+
 .Form .Item{ 
   margin-bottom: 4;
-}
-.background {
-  position: absolute;
-
-  right: 0px;
-  bottom: 0px;
 }

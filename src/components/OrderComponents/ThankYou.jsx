@@ -23,6 +23,7 @@ class ThankYou extends Component {
 
 		const { classes } = this.props;
 
+		
 		return ( 
 			<ThemeProvider theme={theme}>
 				<React.Fragment>
