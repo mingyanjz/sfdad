@@ -145,7 +145,7 @@ export default function GMap(props) {
 	// Key!!!
 	const useKey = [false, true][1];
   	const { isLoaded, loadError } = useLoadScript({
-		googleMapsApiKey: (useKey)? 'AIzaSyDBQYTDleV9xNENx9ZlnTiFKiNVK25NWxc': '',
+		googleMapsApiKey: (useKey)? 'apikeykeykeyXXXXXXXXXXXXXXXXX': '',
     	libraries,
 	});
 	
