@@ -13,24 +13,25 @@ class ThankYou extends Component {
 	state = {  }
 	
 	render() { 
-		var order = {
-			orderID : this.props.orderID,
-			time: this.props.opions[this.props.optionidx].option.deliveryTime,
-		}
-		var user = {
-			firstName: this.props.user.firstName,
-		}
+		var { orderID } = this.props;
+		console.log(orderID);
+		console.log(typeof orderID);
+		var { options } = this.props;
+		console.log(options);
+		console.log(typeof options);
+		var { optionIdx } = this.props;
+
 		const { classes } = this.props;
 
 		return ( 
 			<ThemeProvider theme={theme}>
 				<React.Fragment>
-					<Typography variant="h5" gutterBottom>
-						{user.firstName}, thank you for your order.
+					<Typography variant="h5" gutterBottom align='left'>
+						Thank you for your order.
 					</Typography>
-					<Typography variant="subtitle1">
-						Your order number is {order.orderID}. The expected delivery time is {order.time}.
-						Please see the UserInfo page for traking detials.
+					<Typography variant="subtitle1" align='left'>
+						Your order number is {this.props.orderID["Your order id"]}. The expected delivery time is {options[optionIdx].deliveryTime}.
+						Please see the UserInfo page for tracking details.
 					</Typography>
 					<LinearBuffer />
 				</React.Fragment>

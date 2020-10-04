@@ -27,7 +27,7 @@ class Main extends Component {
     }
     logout = () => {
         // fetch('http://localhost:8080/dispatchApp/logout', {
-        fetch('http://18.221.103.171/dispatchDeliveryBackend/Login/logout', {
+        fetch('http://18.191.48.223/dispatchDeliveryBackend/Login/logout', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Origin': 'http://localhost:3000',
@@ -56,11 +56,11 @@ class Main extends Component {
 
     }
     getHistory = (data) => {
-        data= {
-            email: '5@gmail.com',
-          };
+        // data= {
+        //     email: '5@gmail.com',
+        //   };
         //fetch('http://localhost:8080/dispatchApp/login', {
-          fetch('http://18.221.103.171/dispatchDeliveryBackend/Login/history/user', {    
+          fetch('http://18.191.48.223/dispatchDeliveryBackend/Login/history/user', {    
           method: 'POST', // or 'PUT'
           headers: {
             'Content-Type': 'application/json',

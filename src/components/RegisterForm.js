@@ -12,7 +12,7 @@ class RegistrationForm extends React.Component {
   };
   register = (data) => {
     //fetch('http://localhost:8080/dispatchApp/register', {
-      fetch('http://18.221.103.171/dispatchDeliveryBackend/register', { 
+      fetch('http://18.191.48.223/dispatchDeliveryBackend/register', { 
       method: 'POST', // or 'PUT'
       // mode: 'no-cors',
       headers: {

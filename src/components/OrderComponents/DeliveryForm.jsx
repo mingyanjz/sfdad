@@ -14,30 +14,25 @@ class DeliveryForm extends Component {
 
   RadioButtonsGroup = () => {
     const [value, setValue] = React.useState('drone');
-
     const handleChange = (event) => {
       setValue(value = event.target.value);
-      this.props.option.optionIdx = value === 'drone' ? 0 : 1;
-      this.props.onOptionSelectedChange(this.props.option);
     };
   }
 
   render() {
     // var data = require('./options.json');
-    var data = this.props.options;
-    var option = {
-      optionIdx: this.props.optionIdx
-    };
+    var { options } = this.props;
+    var { optionIdx } = this.props;
 
     const { classes } = this.props;
 
     return (
       <ThemeProvider theme={theme}>
         <React.Fragment>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h6" gutterBottom align='left'>
             Delivery method
           </Typography>
-          <FormControl component="optionSet">
+          <FormControl component="optionSet" >
             <RadioGroup
               aria-label="option"
               name="deliveryOption"
@@ -48,25 +43,31 @@ class DeliveryForm extends Component {
                 value="drone"
                 control={<Radio />}
                 label="drone"
+                onChange={() => {
+                  optionIdx = 0;
+                  this.props.onOptionSelectedChange(optionIdx);
+                }} 
               />
               <Typography variant="subtitle1" >
-                  price: {data[0].option.fee}
+                price: {options[0].option.fee}
               </Typography>
-              <br></br>
               <Typography>
-                  time: {data[0].option.deliveryTime}
+                time: {options[0].option.deliveryTime}
               </Typography>
               <FormControlLabel
                 value="robot"
                 control={<Radio />}
                 label="robot"
+                onChange={() => {
+                  optionIdx = 1;
+                  this.props.onOptionSelectedChange(optionIdx);
+                }} 
               />
               <Typography variant="subtitle1" >
-                  price: {data[1].option.fee}
+                price: {options[1].option.fee}
               </Typography>
-              <br></br>
               <Typography>
-                  time: {data[1].option.deliveryTime}
+                time: {options[1].option.deliveryTime}
               </Typography>
             </RadioGroup>
           </FormControl>
@@ -83,7 +84,7 @@ class DeliveryForm extends Component {
             variant="contained"
             color="primary"
             className={classes.button}
-            onClick={() => { this.props.onNext(); }}
+            onClick={this.props.onNext}
           >
             Next
           </Button>

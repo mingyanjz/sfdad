@@ -8,7 +8,9 @@ export default class HomePage extends Component{
         return (
             <div className="Hhome">
               <div className="lander">
-                    <Order />
+                    <Order 
+                    user={this.props.user}
+                    />
               </div>
             </div>
           );

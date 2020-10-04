@@ -143,9 +143,9 @@ export default function GMap(props) {
 	const [direction, setDirection] = useState(null);
 
 	// Key!!!
-	const useKey = [false, true][0];
+	const useKey = [false, true][1];
   	const { isLoaded, loadError } = useLoadScript({
-		googleMapsApiKey: (useKey)? '&key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX': '',
+		googleMapsApiKey: (useKey)? 'AIzaSyDBQYTDleV9xNENx9ZlnTiFKiNVK25NWxc': '',
     	libraries,
 	});
 	

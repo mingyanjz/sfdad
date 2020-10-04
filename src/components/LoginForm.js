@@ -14,7 +14,7 @@ class LoginForm extends React.Component {
 
   login = (data) => {
     //fetch('http://localhost:8080/dispatchApp/login', {
-      fetch('http://18.221.103.171/dispatchDeliveryBackend/login', {    
+      fetch('http://18.191.48.223/dispatchDeliveryBackend/login', {    
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',

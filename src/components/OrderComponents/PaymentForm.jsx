@@ -9,7 +9,6 @@ import { useStyles } from './useStyles';
 import { withStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../theme';
-import { Autocomplete } from '@material-ui/lab';
 
 class PaymentForm extends Component {
   state = {  }
@@ -20,10 +19,10 @@ class PaymentForm extends Component {
     return (
       <ThemeProvider theme={theme}>
         <React.Fragment>
-          <Typography variant="h6" gutterBottom>
+          {/* <Typography variant="h6" gutterBottom>
             Billing Info
-          </Typography>
-          <Grid container spacing={3}>
+          </Typography> */}
+          {/* <Grid container spacing={3}>
             <Grid item xs={12} md={6}>
               <TextField
                 required
@@ -105,8 +104,8 @@ class PaymentForm extends Component {
             </Grid>
           </Grid>
           <br/>
-          <br/>
-          <Typography variant="h6" gutterBottom>
+          <br/> */}
+          <Typography variant="h6" gutterBottom align='left'>
             Payment
           </Typography>
           <Grid container spacing={3}>

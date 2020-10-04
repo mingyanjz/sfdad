@@ -28,7 +28,7 @@ class Order extends Component {
     item: {weight: null, length: null, height: null, width: null},
     // delivery form
     options: null,
-    optionIdx: 1, // 0: drone; 1: car
+    optionIdx: 0, // 0: drone; 1: car
     // payment form
     // review
     orderID: null,
@@ -62,26 +62,27 @@ class Order extends Component {
     this.setState(shipAddress);
 
     this.handleNext();
-    // console.log(this.state.options);
+    console.log(this.state.options);
   }
 
   handleLoading = (isLoading) => {
     this.setState({
-      isLoading: isLoading,
-    })
-  }
-
-  handleOptionSelected = (option) => {
-    this.setState({
-      optionIdx: option.optionIdx,
+      isLoading: isLoading
     });
   }
 
-  handlePaymentPay = (order) => {
+  handleOptionSelected = (optionIdx) => {
     this.setState({
-      orderID: order.orderID,
-      email: order.email,
+      optionIdx: optionIdx
     });
+  }
+
+  handlePaymentPay = (orderID) => {
+    console.log(orderID);
+    this.setState({
+      orderID: orderID
+    });
+    console.log("order" + this.state.orderID["Your order id"]);
   }
   
   handleNext = () => {
@@ -104,13 +105,14 @@ class Order extends Component {
                     onNext={this.handleNext} onOptionsChange={this.handleOptionsChange}
                     onLoading={this.handleLoading}/>;
       case 1:
-        return <DeliveryForm onNext={this.handleNext} onBack={this.handleBack}/>;
+        return <DeliveryForm {...this.state} onOptionSelectedChange={this.handleOptionSelected}
+                    onNext={this.handleNext} onBack={this.handleBack}/>;
       case 2:
         return <PaymentForm onNext={this.handleNext} onBack={this.handleBack}/>;
       case 3:
-        return <Review onNext={this.handleNext} onBack={this.handleBack}/>;
+        return <Review {...this.state} user={this.props.user} onPaymentPayChange={this.handlePaymentPay} onNext={this.handleNext} onBack={this.handleBack}/>;
       case 4:
-        return <ThankYou />;
+        return <ThankYou {...this.state}/>;
       default:
         throw new Error('Unknown step');
     }

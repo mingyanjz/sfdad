@@ -15,7 +15,7 @@ class AddressForm extends Component {
 
   getOptions = (query) => {
     this.props.onLoading(true);
-    var url = 'http://18.221.103.171/dispatchDeliveryBackend/Login/option?';
+    var url = 'http://18.191.48.223/dispatchDeliveryBackend/Login/option?';
     // test case
     // '2601 Mason St, San Francisco, CA 94133'
     // '99 Harding Rd, San Francisco, CA 94132'
