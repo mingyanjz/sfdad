@@ -1,22 +1,8 @@
 .main{   
     position: relative;
     height: 720px;
-   
+    
 }
-.left-part{   
-    /* background-color: brown; */
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    padding: 20px;
-    height: 780px;
-    width: 400px;
-}
-.right-part{
-    /* background-color: blue; */
-    position: absolute;
-    margin-left: 400px;
-    margin-bottom: 50px;
-    height: 780px;
-    width: 1200px;
+.navbar {
+    margin: 0px;
 }

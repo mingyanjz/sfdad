@@ -6,7 +6,7 @@ export default class HomePage extends Component{
   
     render(){
         return (
-            <div className="Hhome">
+            <div className="Home">
               <div className="lander">
                     <Order 
                     user={this.props.user}
