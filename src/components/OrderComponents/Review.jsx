@@ -79,7 +79,7 @@ class Review extends Component {
                 </TableRow> */}
                 <TableRow>
                   <TableCell>TOTAL</TableCell>
-                  <TableCell align="right">{options[optionIdx].option.fee} USD</TableCell>
+                  <TableCell align="right">{Number(options[optionIdx].option.fee).toFixed(2)} USD</TableCell>
                 </TableRow>
               </TableBody>
             </Table>

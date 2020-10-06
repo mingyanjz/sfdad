@@ -39,6 +39,14 @@ export const useStyles = theme => ({
     },
     formControl: {
       padding: theme.spacing(1, 0),
+      marginLeft: theme.spacing(3),
+    },
+    formControlLable: {
+      marginLeft: theme.spacing(0),
+    },
+    typo: {
+      padding: theme.spacing(0.5),
+      marginLeft: theme.spacing(3),
     },
     total: {
       fontWeight: 700,
