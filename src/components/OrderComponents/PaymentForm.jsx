@@ -146,7 +146,7 @@ class PaymentForm extends Component {
                 autoComplete="cc-csc"
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} >
               <FormControlLabel
                 control={
                 <Checkbox
