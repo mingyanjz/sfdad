@@ -15,8 +15,8 @@ export default class History extends Component {
               <h1>{this.props.user.firstName} {this.props.user.lastName}'s order history</h1> :
               <h1>Login first to see history</h1>
           }
-          <div className="history-list">
-          <List 
+          <div className="history-box">
+          <List className="history-list"
             itemLayout="horizontal"
             dataSource={orders}
             renderItem={order => (
