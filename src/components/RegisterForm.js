@@ -175,7 +175,7 @@ class RegistrationForm extends React.Component {
           })(<Input />)}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" style={{ background: "#009688", borderColor: "#009688" }}>
             Register
           </Button>
         </Form.Item>

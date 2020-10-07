@@ -24,7 +24,7 @@ export default class LoginPage extends Component {
                  />
                 </div>
                 <div className="background">
-                    <img className="background-drone" src={drone}  alt="logo" width="800" ></img>
+                    <img className="background-drone" src={drone}  alt="logo" width="1000" ></img>
                 </div>
                 
             </div>

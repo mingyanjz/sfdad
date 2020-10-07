@@ -4,7 +4,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 const useStyles = makeStyles({
   root: {
-    width: '80%',
+    width: '100%',
     padding: '30px',
   },
 });
@@ -32,7 +32,7 @@ export default function LinearBuffer() {
   React.useEffect(() => {
     const timer = setInterval(() => {
       progressRef.current();
-    }, 500);
+    }, 1000);
 
     return () => {
       clearInterval(timer);

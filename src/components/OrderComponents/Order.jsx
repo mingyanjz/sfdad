@@ -3,12 +3,16 @@ import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-// import Button from '@material-ui/core/Button';
 // import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../theme';
 import { useStyles } from './useStyles';
+
+import { Menu } from 'antd';
+
+import { Link } from "react-router-dom";
+
 
 import AddressForm from './AddressForm';
 import DeliveryForm from './DeliveryForm';
@@ -128,31 +132,49 @@ class Order extends Component {
 
     const test = {lat:37.75, lng:-122.45}
 
+    const { SubMenu } = Menu;
+
     return (
       <ThemeProvider theme={theme}>
+            
         <React.Fragment>
-          <main className={classes.layout}>
-            <Paper className={classes.paper}>
-              {/* <Typography component="h1" variant="h4" display='block' align="center">
-                Order
-              </Typography> */}
-              <Stepper activeStep={this.state.step} className={classes.stepper}>
-                {steps.map((label) => (
-                  <Step key={label.info}>
-                    <StepLabel>
-                      {label.emoji}
-                      {" "}
-                      {label.info}
-                    </StepLabel>
-                  </Step>
-                ))}
-              </Stepper>
-              <React.Fragment>
-                {this.getStepContent(this.state.step)}
-              </React.Fragment>
-            </Paper>
+          {/* <main className={classes.layout}> */}
+          <main>
+            <span className={classes.layout}>
+                <Paper className={classes.paper}>
+                  <Stepper activeStep={this.state.step} className={classes.stepper}>
+                    {steps.map((label) => (
+                      <Step key={label.info}>
+                        <StepLabel>
+                          {label.emoji}
+                          {" "}
+                          {label.info}
+                        </StepLabel>
+                      </Step>
+                    ))}
+                  </Stepper>
+                  <React.Fragment>
+                    {this.getStepContent(this.state.step)}
+                  </React.Fragment>
+                </Paper>
+            </span>
+            <span className={classes.userLayout}>
+              <Menu className={classes.menu} mode="horizontal" >
+                <SubMenu key="sub1" title={this.props.user == null? "Please log in": this.props.user.email}>
+                  <Menu.Item key="9">
+                    {this.props.user == null? "log in": "log out"}
+                    <Link to="/login" onClick={this.props.logout}/>
+                  </Menu.Item>
+                  <Menu.Item key="10">
+                    orders
+                    <Link to="/history" onClick={this.props.onClickUser}></Link>  
+                  </Menu.Item>
+                </SubMenu>
+              </Menu>
+            </span>
           </main>
         </React.Fragment>
+
         <div>
           <GMap {...this.state}/>
         </div>

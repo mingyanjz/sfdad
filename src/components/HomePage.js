@@ -8,9 +8,11 @@ export default class HomePage extends Component{
         return (
             <div className="Home">
               <div className="lander">
-                    <Order 
-                    user={this.props.user}
-                    />
+                <Order 
+                  user={this.props.user}
+                  logout={this.props.logout}
+                  onClickUser={this.props.onClickUser}
+                />
               </div>
             </div>
           );

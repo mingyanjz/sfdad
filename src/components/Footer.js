@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import Typography from '@material-ui/core/Typography';
 
 class Footer extends Component{
     render() {
-        return <footer className="App-footer">
-            (c)2020 SF Dispatched
-        </footer>
+        return (
+					<div class='App-footer'>
+						<Typography variant="h5" color="textSecondary" align="buttom">
+							{'Copyright © SF Dispatched 2020.'}
+						</Typography>
+					</div>
+        )
     }
 }
 export default Footer;

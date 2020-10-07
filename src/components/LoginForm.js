@@ -6,6 +6,7 @@ import {
 } from 'antd';
 
 
+
 class LoginForm extends React.Component {
   state = {
     confirmDirty: false,
@@ -140,7 +141,7 @@ class LoginForm extends React.Component {
         </Form.Item>
 
         <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" style={{ background: "#009688", borderColor: "#009688" }}>
             Login
             </Button>
         </Form.Item>

@@ -10,7 +10,6 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 
 class Review extends Component {
 
@@ -58,7 +57,6 @@ class Review extends Component {
           <Typography variant="h6" gutterBottom align='left'>
             Order Summary
           </Typography>
-          <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
               <TableBody>
                 <TableRow>
@@ -83,7 +81,6 @@ class Review extends Component {
                 </TableRow>
               </TableBody>
             </Table>
-          </TableContainer>
         </React.Fragment>
 
         <div className={classes.buttons}>

@@ -3,7 +3,8 @@ import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import Home from "./components/HomePage";
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
-import History from "./components/History"
+import History from "./components/History";
+import Order from "./components/OrderComponents/Order";
 export default function Routes(props) {
     let history = useHistory();
     let location = useLocation();
@@ -16,7 +17,9 @@ export default function Routes(props) {
         <Switch>
             <Route exact path="/">
                 <Home 
-                user={props.user}
+                    user={props.user}
+                    logout={props.logout}
+                    onClickUser={props.onClickUser}
                 />
             </Route>
             <Route exact path="/login">

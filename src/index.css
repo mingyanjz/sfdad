@@ -8,6 +8,7 @@
 @import "./styles/Footer.css";
 @import "./styles/LoginForm.css";
 @import "./styles/History.css";
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

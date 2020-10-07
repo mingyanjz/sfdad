@@ -66,7 +66,7 @@ class DeliveryForm extends Component {
                 price: {Number(options[0].option.fee).toFixed(2)} USD
               </Typography>
               <Typography className={classes.typo}>
-                time: {options[0].option.deliveryTime}
+                Arrival time: {options[0].option.deliveryTime}
               </Typography>
               <br></br>
               <ListItemAvatar className={classes.typo}>
@@ -85,7 +85,7 @@ class DeliveryForm extends Component {
                 price: {Number(options[1].option.fee).toFixed(2)} USD
               </Typography>
               <Typography className={classes.typo}>
-                time: {options[1].option.deliveryTime}
+                Arrival time: {options[1].option.deliveryTime}
               </Typography>
             </RadioGroup>
           </FormControl>

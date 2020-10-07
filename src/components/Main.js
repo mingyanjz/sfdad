@@ -94,12 +94,12 @@ class Main extends Component {
             <div className="main">
                 {this.state.login == false ?
                     <Navbar fluid collapseOnSelect>
-                        <Navbar.Header>
+                        {/* <Navbar.Header>
                             <Navbar.Brand>
                                 <Link to="/">Home</Link>
                             </Navbar.Brand>
                             <Navbar.Toggle />
-                        </Navbar.Header>
+                        </Navbar.Header> */}
                         <Navbar.Collapse>
                             <Nav pullRight>
                                 <LinkContainer to="/register">
@@ -112,30 +112,33 @@ class Main extends Component {
                         </Navbar.Collapse>
                     </Navbar>
                     :
-                    <Navbar fluid collapseOnSelect>
-                        <Navbar.Header>
-                            <Navbar.Brand>
-                                <Link to="/">Home</Link>
-                            </Navbar.Brand>
-                            <Navbar.Toggle />
-                        </Navbar.Header>
-                        <Navbar.Collapse>
-                            <Nav pullRight>
-                                <LinkContainer to="/history">
-                                    <NavItem onClick={this.onClickUser}>User</NavItem>
-                                </LinkContainer>
-                                <LinkContainer to="/login">
-                                    <NavItem onClick={this.logout}>Logout</NavItem>
-                                </LinkContainer>
-                            </Nav>
-                        </Navbar.Collapse>
-                    </Navbar>
+                    // <Navbar fluid collapseOnSelect>
+                    //     {/* <Navbar.Header>
+                    //         <Navbar.Brand>
+                    //             <Link to="/">Home</Link>
+                    //         </Navbar.Brand>
+                    //         <Navbar.Toggle />
+                    //     </Navbar.Header> */}
+                    //     <Navbar.Collapse>
+                    //         <Nav pullRight>
+                    //             <LinkContainer to="/history">
+                    //                 <NavItem onClick={this.onClickUser}>User</NavItem>
+                    //             </LinkContainer>
+                    //             <LinkContainer to="/login">
+                    //                 <NavItem onClick={this.logout}>Logout</NavItem>
+                    //             </LinkContainer>
+                    //         </Nav>
+                    //     </Navbar.Collapse>
+                    // </Navbar>
+                    <div></div>
                 }
                 <Routes
                     updateLogin={this.updateLogin}
                     updateUser={this.updateUser}
                     user={this.state.user}
                     userHistory={this.state.userHistory}
+                    onClickUser={this.onClickUser}
+                    logout={this.logout}
                 />
             </div>
         );

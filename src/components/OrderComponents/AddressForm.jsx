@@ -29,7 +29,7 @@ class AddressForm extends Component {
         this.props.onOptionsChange(data);
       })
       
-    // temporary for testing
+    // // temporary for testing
     // var data = require('./options.json');
     // this.props.onOptionsChange(data);
   }
@@ -73,9 +73,8 @@ class AddressForm extends Component {
             </Grid>
             <Grid item xs={12} sm={4}>
               <TextField
-                required
                 name="zip"
-                label="Zip code"
+                label="zip code"
                 fullWidth
                 autoComplete="shipping postal-code"
                 defaultValue={this.props.pickupAddress.zip}
@@ -112,9 +111,8 @@ class AddressForm extends Component {
             </Grid>
             <Grid item xs={12} sm={4}>
               <TextField
-                required
                 name="zip"
-                label="Zip code"
+                label="zip code"
                 fullWidth
                 defaultValue={this.props.shipAddress.zip}
                 autoComplete="shipping postal-code"
@@ -126,8 +124,8 @@ class AddressForm extends Component {
             </Grid>
 
           </Grid>
-          <br/>
-          <br/>
+          {/* <br/>
+          <br/> */}
           {/* <Typography variant="h6" gutterBottom align='left' >
             Item
           </Typography>

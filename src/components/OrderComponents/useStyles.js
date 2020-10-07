@@ -13,6 +13,14 @@ export const useStyles = theme => ({
       },
       zIndex:10,
     },
+    userLayout: {
+      position:'absolute',
+      padding: '10px',
+      margin: '10px',
+      width: 'auto',
+      right: '0px',
+      zIndex:10,
+    },
     paper: {
       marginTop: theme.spacing(3),
       marginBottom: theme.spacing(3),
@@ -21,6 +29,7 @@ export const useStyles = theme => ({
         marginTop: theme.spacing(1),
         marginBottom: theme.spacing(0),
         padding: theme.spacing(3),
+        width: 600,
       },
     },
     stepper: {
@@ -29,6 +38,7 @@ export const useStyles = theme => ({
     buttons: {
       display: 'flex',
       justifyContent: 'flex-end',
+      maxHeight: '60px',
     },
     button: {
       marginTop: theme.spacing(3),
@@ -51,6 +61,9 @@ export const useStyles = theme => ({
     total: {
       fontWeight: 700,
     },
+    menu: {
+      'border-radius': '5px',
+    }
     
   })
   
