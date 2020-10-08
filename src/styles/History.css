@@ -1,6 +1,6 @@
 
 .history-box {
-    height: 700px;
+    /* height: 700px; */
     width: 600px;
     margin: auto;      
     right: 0px;  
@@ -12,4 +12,8 @@
 .history-list {
     padding-right: 20px;
     padding-left: 20px;
+}
+h1 {
+    margin: 15px;
+    font-weight: 550;
 }

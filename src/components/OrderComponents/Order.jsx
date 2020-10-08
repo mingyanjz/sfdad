@@ -10,9 +10,11 @@ import theme from '../theme';
 import { useStyles } from './useStyles';
 
 import { Menu } from 'antd';
+import { Typography } from 'antd';
+import { Icon } from 'antd';
 
-import { Link } from "react-router-dom";
 
+import { Link, Redirect } from "react-router-dom";
 
 import AddressForm from './AddressForm';
 import DeliveryForm from './DeliveryForm';
@@ -38,7 +40,9 @@ class Order extends Component {
     orderID: null,
     // helper
     isLoading: false,
+    anchorEl: null,
   }
+
 
   handleQueryChange = (query) => {
     this.setState({
@@ -122,6 +126,7 @@ class Order extends Component {
     }
   }
 
+
   render() { 
     const { classes } = this.props;
 
@@ -133,10 +138,11 @@ class Order extends Component {
     const test = {lat:37.75, lng:-122.45}
 
     const { SubMenu } = Menu;
+    const { Title, Paragraph, Text } = Typography;
 
     return (
       <ThemeProvider theme={theme}>
-            
+        {this.props.user == null &&  <Redirect to="/login"/>}
         <React.Fragment>
           {/* <main className={classes.layout}> */}
           <main>
@@ -160,13 +166,24 @@ class Order extends Component {
             </span>
             <span className={classes.userLayout}>
               <Menu className={classes.menu} mode="horizontal" >
-                <SubMenu key="sub1" title={this.props.user == null? "Please log in": this.props.user.email}>
+                <SubMenu key="sub1" title={this.props.user == null? 
+                  <div>
+                    <Icon type="user" style={{ fontSize: 20 }} />
+                    <Text strong style={{fontSize: 16}}>Please log in</Text>
+                  </div>
+                  : 
+                  <div>
+                    <Icon type="user" style={{ fontSize: 20 }} />
+                    <Text strong style={{fontSize: 16}}>{this.props.user.email}</Text>
+                  </div>
+                  }
+                >
                   <Menu.Item key="9">
-                    {this.props.user == null? "log in": "log out"}
+                    {this.props.user == null? <Text strong>log in</Text>: <Text strong>log out</Text>}
                     <Link to="/login" onClick={this.props.logout}/>
                   </Menu.Item>
                   <Menu.Item key="10">
-                    orders
+                    <Text strong>orders</Text>
                     <Link to="/history" onClick={this.props.onClickUser}></Link>  
                   </Menu.Item>
                 </SubMenu>

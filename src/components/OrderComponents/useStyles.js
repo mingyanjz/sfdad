@@ -17,6 +17,7 @@ export const useStyles = theme => ({
       position:'absolute',
       padding: '10px',
       margin: '10px',
+      marginRight: '20px',
       width: 'auto',
       right: '0px',
       zIndex:10,
