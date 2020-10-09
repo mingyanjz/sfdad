@@ -143,9 +143,9 @@ export default function GMap(props) {
 	const [direction, setDirection] = useState(null);
 
 	// Key!!!
-	const useKey = [false, true][0];
+	const useKey = [false, true][1];
   	const { isLoaded, loadError } = useLoadScript({
-		googleMapsApiKey: (useKey)? '&key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX': '',
+		googleMapsApiKey: (useKey)? '&key=AIzaSyDBQYTDleV9xNENx9ZlnTiFKiNVK25NWxc': '',
     	libraries,
 	});
 	
@@ -231,7 +231,7 @@ export default function GMap(props) {
 								😜😏😝🙄😆
                 </span>{" "}
               </h4>
-              <h4> This is the {selected.id}.</h4>
+              <h5> This is the {selected.id}.</h5>
             </div>
           </InfoWindow>
         ) : null}

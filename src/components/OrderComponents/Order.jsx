@@ -168,13 +168,13 @@ class Order extends Component {
               <Menu className={classes.menu} mode="horizontal" >
                 <SubMenu key="sub1" title={this.props.user == null? 
                   <div>
-                    <Icon type="user" style={{ fontSize: 20 }} />
-                    <Text strong style={{fontSize: 16}}>Please log in</Text>
+                    <Icon type="user" style={{ fontSize: 19 }} />
+                    <Text strong style={{fontSize: 14}}>Please log in</Text>
                   </div>
                   : 
                   <div>
-                    <Icon type="user" style={{ fontSize: 20 }} />
-                    <Text strong style={{fontSize: 16}}>{this.props.user.email}</Text>
+                    <Icon type="user" style={{ fontSize: 19 }} />
+                    <Text strong style={{fontSize: 14}}>{this.props.user.email}</Text>
                   </div>
                   }
                 >
